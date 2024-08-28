@@ -45,7 +45,19 @@ Next.js 13.4 부터 App Router가 stable하게 지원하기 시작했다.
 
 - Data Fetching : 13까지는 getServerSideProps, getStaticProps 메소드를 이용하여 구현
 
+    - v13까지는 getServerSideProps, getStaticProps 메소드를 이용하여 구현
+ 
+    - v14부터는 use 메서드를 이용하여 구현하거나, 컴포넌트 내부에서 비동기 함수(async)를 호출하고, await을 사용하여 데이터를 페칭할 수 있습니다
+
 - Tubopack : webpack에서 Tubopack으로 변경
+
+- Tubopack의 장점
+
+    - 빠른 빌드 속도
+ 
+    - 코드 스플리팅 및 성능 최적화
+ 
+    -  번들링 과정 간소화
 
 - 이미지 최적화 : 13까지는 **도구** 사용 / 14부터는 **자체적**으로 지원
     - lazy loading : 지연
