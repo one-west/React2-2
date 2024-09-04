@@ -13,18 +13,112 @@
 
 - 설치 URL : https://chocolatey.org/install#install-with-cmdexeㅞ
 
+- 패키지 URL : https://community.chocolatey.org/packages
+
+- 명령어
+
+    ```shell
+    # 패키지 목록
+    choco search
+    choco list
+
+    # 패키지 원격 검색
+    choco list 패키지명
+
+    # 패키지 모든 버전 원격 검색
+    choco list -a 패키지명
+    choco install 패키지이름
+
+    # 무조건 수락
+    choco install -y
+
+    # 특정 버전 선택 설치
+    choco install firefox --version 90.0.2
+
+    # 패키지 삭제하기
+    choco uninstall 패키지명
+
+    # 패키지 업그레이드
+    choco upgrade 패키지명
+    ```
+
+    - 최신 버전 설치
+    ```shell
+    nvm install node
+    nvm install lts # lts 최신버전
+    ```
+
+    - 버전 지정 설치
+    ```shell
+    nvm install 16.15.1
+    nvm install 16 # 16.x 의 마지막 버전
+
+    nvm uninstall <version> # 필요없는 node 버전 삭제하기
+    ```
+
+    - node 전환
+    ```shell
+    nvm use <version>
+
+    nvm current # 현재 사용중인 버전 확인하기
+    ```
 ### nvm
 
+- NVM (Node Version Manager)는 개발 환경에 따라 Node.js의 버전을 변경해야 하는 상황에 대처하기 위해 필요한 모듈이다.
+
+- 일반 소프트웨어 설치하듯이 exe 파일을 받아 일일히 클릭하여 업데이트 하는 것이 아닌, 터미널에서 명령어로 매우 간단하게 노드 버전을 변경할 수 있다.
+
+- nvm-windows는 MIT 라이센스의 오픈 소스로 Go로 작성되었다.
+
+-  Node.js v4+에서 지원되기 때문에 기본적인 Node.js는 설치가 되어 있어야 한다.
+
+- 명령어
+
+    ```shell
+    # nvm 버젼 확인
+    nvm -v
+    
+    # 현재 내 노드 버젼 확인
+    nvm ls
+    
+    # 사용가능한 노드 버젼 확인
+    nvm ls available
+    ```
+
 ### 프로젝트 기본 구조
+
+- Pages Router
+
+    - 기존 13 이전 버전에서의 Next.js는 원래 /pages 폴더 아래에 원하는 페이지 폴더 목록을 만들어 라우팅을 관리했다.
+
+    - pages 폴더 안에 `index.js` 가 기본 페이지가 된다.
+ 
+    - EX) localhost:3000/about <= pages 폴더 안에 about.js 파일이 있으면 자동으로 라우팅
+
+- App Router
+    
+    - App Router는 /app 폴더를 이용하여 라우팅을 설정할 수 있다. 즉, app 폴더가 pages 폴더를 대체한다고 봐도 된다.
+ 
+    - app 폴더 안에 `page.js` 가 기본 페이지가 된다.
+ 
+    - EX) localhost:3000/about <= app 폴더 안에 about폴더 안에 `page.js` 파일이 있으면 자동으로 라우팅
+
+### Next 프로젝트 생성
+
+```shell
+npx create-next-app@latest
+```
+
+- 뭔가 문제 있을 때
+```shell
+npm cache clean --force
+```
 
 ### 보일러 플레이트
 
 - url : https://github.com/vercel/next.js/tree/canary/examples
 
 - 위 링크에서 필요한 보일러 플레이트를 가지고 와서 사용하면 시간을 줄일 수 있음
-
-### 타입스크립트 지원
-
 
 ## 1주차 메모
 
