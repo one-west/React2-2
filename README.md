@@ -11,7 +11,7 @@
 
 - 설치 / 업데이트 / 삭제 등 에 사용하는 Windows용 패키지 매니저
 
-- 설치 URL : https://chocolatey.org/install#install-with-cmdexeㅞ
+- 설치 URL : https://chocolatey.org/install
 
 - 패키지 URL : https://community.chocolatey.org/packages
 
