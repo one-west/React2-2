@@ -43,7 +43,7 @@ Next.js 13.4 부터 App Router가 stable하게 지원하기 시작했다.
 
 - Pages Router => App Router
 
-- Data Fetching : 13까지는 getServerSideProps, getStaticProps 메소드를 이용하여 구현
+- Data Fetching :
 
     - v13까지는 getServerSideProps, getStaticProps 메소드를 이용하여 구현
  
