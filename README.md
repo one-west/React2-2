@@ -112,6 +112,14 @@ npx create-next-app@latest
 - 뭔가 문제 있을 때
 ```shell
 npm cache clean --force
+npm i -g creata-next-app
+```
+
+- 그래도 안될 때
+```shell
+node 버전 변경
+nvm install 버전
+nvm use 버전
 ```
 
 ### 보일러 플레이트
