@@ -1,5 +1,31 @@
 # React2 3-2반 201930129 정한서
 
+## 2주차 메모
+
+### Chocolatey
+
+- Chocolatey (약칭 Choco) : 윈도우에서 사용할 수 있는 커맨드 라인 패키지 매니저
+
+    > Linux 커맨드라인 패키지 매니저 : apt(apt-get), yum   
+    > Mac 커맨드라인 패키지 매니저 : Homebrew
+
+- 설치 / 업데이트 / 삭제 등 에 사용하는 Windows용 패키지 매니저
+
+- 설치 URL : https://chocolatey.org/install#install-with-cmdexeㅞ
+
+### nvm
+
+### 프로젝트 기본 구조
+
+### 보일러 플레이트
+
+- url : https://github.com/vercel/next.js/tree/canary/examples
+
+- 위 링크에서 필요한 보일러 플레이트를 가지고 와서 사용하면 시간을 줄일 수 있음
+
+### 타입스크립트 지원
+
+
 ## 1주차 메모
 
 ### npm vs yarn
