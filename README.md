@@ -33,7 +33,7 @@
     choco install -y
 
     # 특정 버전 선택 설치
-    choco install firefox --version 90.0.2
+    choco install 패키지명 --version 버전
 
     # 패키지 삭제하기
     choco uninstall 패키지명
