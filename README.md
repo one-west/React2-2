@@ -1,6 +1,115 @@
 # React2 3-2반 201930129 정한서
 
-## 6주차 메모
+## 9주차 메모 24-10-23
+
+### 누적 레이아웃 이동 (CLS: Cumulative Layout Shift)
+
+- 정적 자원 중 이미지 파일은 SEO에 많은 영향을 미친다.
+
+- 다운로드 시간이 많이 걸리고, 렌더링 후에 레이아웃이 변경되는 등 UX에 영향을 미친다.
+
+- Image 컴포넌트를 사용하면 해결
+
+- lazy loading : 이미지 로드 시점을 필요할 때까지 지연시키는 기술
+
+- 이미지 사이즈 최적화로 사이즈를 1/10이하로 줄여줌
+
+- placeholder를 제공
+
+![예시 이미지](https://www.debugbear.com/public/docs/cumulative-layout-shift/cls-filmstrip.png)
+
+### Image Component
+
+#### local 방식
+
+- 예시 코드
+
+```jsx
+import Image from "next/image";
+import foo from "/public/images/leaf-6760484_1920.jpg";
+
+export default function About() {
+  return (
+    <>
+      <h1>About page</h1>
+      {/* 경로 방식 */}
+      <Image src="/images/corn-9064747_640.jpg" alt="옥수수" width={400} height={500} />
+      <Image src="/images/corn-9064747_640.jpg" alt="옥수수" width={400} height={500} layout="responsive" />
+      {/* import 방식 */}
+      <Image src={foo} alt="단풍" width={400} height={500} />
+    </>
+  );
+}
+```
+
+- Image 컴포넌트 사용 시 주의 사항
+
+  - width, height는 필수이다. (layout="fill"을 사용 시에는 생략)
+
+  - layout="responsive" 는 브라우저 크기에 맞게 가변한다.
+
+### Remote 방식
+
+- Pixabay와 같은 외부 이미지를 사용하려면 next.config.mjs 설정이 필요
+
+- 수정된 코드
+
+```mjs
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+```
+
+- 예시 코드
+
+```jsx
+import Image from "next/image";
+
+export default function About() {
+  return (
+    <>
+      <h1>About page</h1>
+      {/* Remote 방식*/}
+      <Image src="https://cdn.pixabay.com/photo/2023/11/03/12/22/toadstool-8362901_1280.jpg" width={300} height={500} alt="버섯" />
+    </>
+  );
+}
+```
+
+### 코드 구성과 데이터 불러오기
+
+- 프로젝트를 시작할 때 확장과 복잡도에 대비 해야한다.
+
+- 코드를 더 효율적으로 구성하기 위해 **아토믹 디자인 원칙**에 따라 디렉토리를 구성한다.
+
+  - atoms : 가장 기본적인 컴포넌트 관리
+
+  - molecules : atoms에 속한 컴포넌트 여러 개를 조합하여 복잡한 구조로 만든 컴포넌트 관리
+
+  - organisms : molecules와 atoms를 섞어서 더 복잡하게 만든 컴포넌트 관리
+
+  - templates : 위의 모든 컴포넌트를 어떻게 배치 결정해서 사용자가 접근할 수 있는 페이지
+
+## 8주차 메모 24-10-16
+
+- 중간고사
+
+## 7주차 메모 24-10-25
+
+- 24-10-09 한글날 보강예정
+
+## 6주차 메모 24-10-02
 
 ### 동적 라우팅 상세
 
@@ -52,7 +161,7 @@
     }
     ```
 
-## 5주차 메모
+## 5주차 메모 24-09-25
 
 ### Next.js 기초와 내장 컴포넌트
 
@@ -98,9 +207,11 @@
 
 - \_app.js와 \_document.js 파일 내용 및 커스터마이징 방법
 
-## 4주차 메모
+## 4주차 메모 24-10-04
 
 ### Page Projcet Layout
+
+**09/18 추석연휴로 인해 10/04 보강**
 
 - \_app.jsx : 서버에 요청할 때 가장 먼저 실행되는 컴포넌트
 
@@ -209,7 +320,7 @@
 
   - fill을 사용할 경우 아래처럼 자동으로 srcset이 지정되어 디바이스 별 이미지 사이즈를 설정해준다.
 
-## 3주차 메모
+## 3주차 메모 24-09-11
 
 ### 파이프라인 문법
 
@@ -327,7 +438,7 @@ Math.random() |> (x) => x * 10 |> console.log;
 3. 더안전한 API 요청 : 외부 API를 호출하거나, DB에 접근하거나, 보호해야 할 데이터에 접근할 일이 없다.
    필요한 모든 정보가 빌드 시 포함되어 있기 때문이다.
 
-## 2주차 메모
+## 2주차 메모 24-09-04
 
 ### Chocolatey
 
@@ -461,7 +572,7 @@ nvm use 버전
 
 - 위 링크에서 필요한 보일러 플레이트를 가지고 와서 사용하면 시간을 줄일 수 있음
 
-## 1주차 메모
+## 1주차 메모 24-08-28
 
 ### npm vs yarn
 
