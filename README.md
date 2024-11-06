@@ -1,5 +1,60 @@
 # React2 3-2반 201930129 정한서
 
+## 11주차 메모 24-11-06
+
+### UI 라이브러리
+
+- UI 라이브러리, 프레임워크, 유틸리티는 필수 X
+
+- 생산성 향상 및 UI 일관성
+
+- **chakra UI**
+
+  - 버튼, Modal, 입력 등 다양한 내장 컴포넌트 제공
+
+  - dark mode, light mode 지원
+
+  - 타입스크립트로 작성되어 있음
+
+  ```sh
+  npm i @chakra-ui/react @emotion/react
+  npx @chakra-ui/cli snippet add
+  ```
+- **TailwindCSS**
+
+  - 다른 프레임워크와는 다르게 CSS 규칙만을 제공
+
+  - JS 모듈이나 react 컴포넌트를 제공하지 않기 때문에 필요한 경우 직접 만들어서 사용해야 함
+
+  - 변수값을 조정하여 개성있는 디자인을 만들 수 있음. 디자인 자유도가 높다.
+
+  - dark mode 및 light mode를 쉽게 적용할 수 있다.
+
+  - 빌드 시점에 사용하지 않는 클래스는 제거 되기 때문에 높은 수준의 최적화를 지원
+
+  - CSS 클래스의 접두사를 활용해서 모바일, 데스크톱, 태블릿 화면에서 원하는 규칙을 지정할 수 있음
+
+    - 예시코드 `<div className="sm:hidden md:flex lg:inline-block"></div>`
+
+    > sm => @media (min-width: 640px) { ... }  
+    > md => @media (min-width: 768px) { ... }  
+    > lg => @media (min-width: 1024px) { ... }  
+    > xl => @media (min-width: 1280px) { ... }  
+    > 2xl => @media (min-width: 1536px) { ... }
+
+  - 현재는 [TailwindCSS](https://tailwindcss.com/)와 [TailwindUI](https://tailwindui.com/)를 지원함
+
+- **Headless UI**
+
+  - TailwindCSS를 만든 Tailwind Labs 팀의 무료 오픈소스 프로젝트
+
+  - TailwindCSS는 웹 컴포넌트 안에서 사용할 수 있는 CSS클래스만 제공함
+
+  - Headless UI는 CSS클래스를 제공하는 것이 아닌 동적 컴포넌트만 제공한다.
+
+  ```sh
+  npm install @headlessui/react
+  ```
 ## 10주차 메모 24-10-30
 
 ### CSS와 내장 스타일링 메서드
@@ -193,8 +248,19 @@ export default function About() {
     <>
       <h1>About page</h1>
       {/* 경로 방식 */}
-      <Image src="/images/corn-9064747_640.jpg" alt="옥수수" width={400} height={500} />
-      <Image src="/images/corn-9064747_640.jpg" alt="옥수수" width={400} height={500} layout="responsive" />
+      <Image
+        src="/images/corn-9064747_640.jpg"
+        alt="옥수수"
+        width={400}
+        height={500}
+      />
+      <Image
+        src="/images/corn-9064747_640.jpg"
+        alt="옥수수"
+        width={400}
+        height={500}
+        layout="responsive"
+      />
       {/* import 방식 */}
       <Image src={foo} alt="단풍" width={400} height={500} />
     </>
@@ -241,7 +307,12 @@ export default function About() {
     <>
       <h1>About page</h1>
       {/* Remote 방식*/}
-      <Image src="https://cdn.pixabay.com/photo/2023/11/03/12/22/toadstool-8362901_1280.jpg" width={300} height={500} alt="버섯" />
+      <Image
+        src="https://cdn.pixabay.com/photo/2023/11/03/12/22/toadstool-8362901_1280.jpg"
+        width={300}
+        height={500}
+        alt="버섯"
+      />
     </>
   );
 }
@@ -424,7 +495,9 @@ export default function About() {
   export default function RootLayout({ children }) {
     return (
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          {children}
+        </body>
       </html>
     );
   }
