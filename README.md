@@ -20,6 +20,7 @@
   npm i @chakra-ui/react @emotion/react
   npx @chakra-ui/cli snippet add
   ```
+
 - **TailwindCSS**
 
   - 다른 프레임워크와는 다르게 CSS 규칙만을 제공
@@ -55,6 +56,7 @@
   ```sh
   npm install @headlessui/react
   ```
+
 ## 10주차 메모 24-10-30
 
 ### CSS와 내장 스타일링 메서드
