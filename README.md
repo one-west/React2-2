@@ -48,6 +48,80 @@
 |컨텍스트 값 접근|`Context.Consumer` 내부에서 콜백 함수로 값 접근|`useContext(Context)`로 직접 값 접근|
 |리렌더링|	컨텍스트 값이 변경되면 Consumer가 포함된 컴포넌트만 리렌더링|컨텍스트 값이 변경되면 해당 훅을 사용하는 컴포넌트만 리렌더링|
 
+### 예시 코드 (다크모드 / 라이트모드)
+- src/contexts/ThemeContext.jsx
+```jsx
+"use client";
+
+import { createContext, useEffect, useState } from "react";
+
+export const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const initialTheme = theme === "light" ? "light" : "dark";
+    setTheme(initialTheme);
+    document.body.className = initialTheme;
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.body.className = newTheme;
+  };
+
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
+};
+```
+
+- src/components/ThemeToggleButton.jsx
+```jsx
+"use client"
+
+import { ThemeContext } from "@/contexts/ThemeContext";
+import { useContext } from "react";
+
+const ThemeToggleButton = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext); // ThemeContext로부터 값 가져오기
+
+  return (
+    <button onClick={toggleTheme}>
+      {theme === "light" ? "Dark Mode" : "Light Mode"}
+    </button>
+  );
+};
+
+export default ThemeToggleButton;
+```
+
+- src/app/layout.tsx
+```jsx
+import ThemeToggleButton from "@/components/ThemeToggleButton";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import "@/app/styles/global.css";
+
+/* ...생략 */
+
+export default function RootLayout(props: { children: React.ReactNode }) {
+  const { children } = props;
+  return (
+    <html
+      lang="ko"
+      suppressHydrationWarning
+      className={`${geistMono.variable} ${geistSans.variable}`}
+    >
+      <body>
+        <ThemeProvider>
+          <ThemeToggleButton />
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
 ## 11주차 메모 24-11-06
 
 ### UI 라이브러리
