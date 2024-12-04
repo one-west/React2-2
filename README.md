@@ -1,12 +1,53 @@
 # React2 3-2반 201930129 정한서
 
+## 14주차 메모 24-11-27
+
+### Github Pages로 배포하기
+
+- github에서 새 repo를 생성 (레포명은 : 나의id.github.io)
+
+- 정적 페이지는 배포하기 좋다.
+
+- 나의id.github.io 저장소를 기본 저장소라고 하고 해당 repo가 없으면 다른 저장소들의 페이지를 함께 볼 수 없다.
+
+#### 배포 방법
+
+- npm install gh-pages 설치
+
+```jsx
+  {
+  "homepage": "https://one-west.github.io/foo/",
+  "name": "foo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out"
+  },
+  "dependencies": {
+    "gh-pages": "^6.2.0",
+    "next": "14.2.7",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  }
+```
+
+- GitHub Pages 설정 확인
+
+- GitHub에서 Settings > Pages로 이동하여 Source를 gh-pages 브랜치로 설정해야 합니다.
+
 ## 13주차 메모 24-11-20
 
 ### use client 란?
 
 - Next.js 13에서 도입된 새로운 지시어로, 컴포넌트가 클라이언트 사이드에서만 렌더링된다는 것을 명시
 
--  Server Components와 Client Components가 있는데 이 둘을 구분하기 위함이다.
+- Server Components와 Client Components가 있는데 이 둘을 구분하기 위함이다.
 
 ### use client 주요 특징과 사용 이유
 
@@ -52,10 +93,9 @@
 
   - Context API는 주로 전역 상태를 관리하는 데 사용
 
-  - React.createContext()로 생성한 Context 객체와 Provider 
+  - React.createContext()로 생성한 Context 객체와 Provider
 
   - 장점
-
 
   - 단점
 
