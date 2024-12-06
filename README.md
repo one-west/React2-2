@@ -89,15 +89,29 @@
 
 - **Context API**
 
-  - React에서 기본으로 제공하는 상태 관리 도구로, 외부 라이브러리 설치 없이 사용 가능
+    - React에서 기본으로 제공하는 상태 관리 도구로, 외부 라이브러리 설치 없이 사용 가능
 
-  - Context API는 주로 전역 상태를 관리하는 데 사용
+    - Context API는 주로 전역 상태를 관리하는 데 사용
 
-  - React.createContext()로 생성한 Context 객체와 Provider
+    - React.createContext()로 생성한 Context 객체와 Provider
 
-  - 장점
+    - 장점
+ 
+        - 내장된 기능
+      
+        - 간단한 설정
+      
+        - 컴포넌트 단위 상태 관리
+      
+        - 경량
 
-  - 단점
+    - 단점
+
+        - 리렌더링 문제
+        
+        - 구조적 복잡성
+        
+        - 디버깅 도구 부족
 
 - **Redux**
 
